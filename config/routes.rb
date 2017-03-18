@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root "songs#index"
+
+  get "songs" => "songs#index"
 end

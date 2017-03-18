@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<h4>List of Dinos</h4>
+
+<% if @artist.songs.any? %>
+  <ul>
+    <% @artist.songs.each do |dino| %>
+      <li><%= song.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This artist doesn't have any songs.</p>
+<% end %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
