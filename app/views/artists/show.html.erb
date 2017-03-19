@@ -2,6 +2,15 @@
 <hr>
 <h2><%= @artist.name %></h2>
 
+<h4>Photos</h4>
+<% @artist.photos.each do |photo| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= image_tag photo.image.thumbnail %>
+  </div>
+</div>
+<% end %>
+
 <p>Original Artist Name: <%= @artist.name %></p>
 <p>Bio: <%= @artist.bio %></p>
 
@@ -14,6 +23,10 @@
     <p><%= link_to song.song_title, song_path(song.id) %></p>
 <% end %>
 
+<hr>
 
-<%= link_to "[Edit]", edit_artist_path(@artist.id) %>
-<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<strong><p><%= link_to "[Edit]", edit_artist_path(@artist.id) %></p></strong>
+<strong><p><%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %></p></strong>
+<hr>
+
+<strong><p><%= link_to "New Song", new_song_path %></p></strong>
