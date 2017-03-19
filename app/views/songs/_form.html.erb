@@ -6,8 +6,12 @@
   <%= f.label :song_title %>
   <%= f.text_field :song_title %>
 
+<hr>
+
+<h3>Original Artist</h3>
   <%= f.label :artist_id %>
   <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
+<hr>
 
   <%= f.submit (@song.new_record? ? "Create" : "Update") %>
 <% end %>

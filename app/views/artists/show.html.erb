@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h1>Original Artist Show Page</h1>
+<hr>
+<h2><%= @artist.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<p>Original Artist Name: <%= @artist.name %></p>
+<p>Bio: <%= @artist.bio %></p>
 
-<h4>List of Dinos</h4>
 
-<% if @artist.songs.any? %>
-  <ul>
-    <% @artist.songs.each do |dino| %>
-      <li><%= song.name %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>This artist doesn't have any songs.</p>
+<hr>
+
+<h3>Songs by original artist:</h3>
+
+<% @artist.songs.each do |song| %>
+    <p><%= link_to song.song_title, song_path(song.id) %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+
+<%= link_to "[Edit]", edit_artist_path(@artist.id) %>
+<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>

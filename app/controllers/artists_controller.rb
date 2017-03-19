@@ -42,7 +42,7 @@ def destroy
 end
 
 def artist_params
-  params.require(:artist).permit(:id, :name, :bio)
+  params.require(:artist).permit(:id, :name, :bio, {:song_ids => []})
 end
 
 end
