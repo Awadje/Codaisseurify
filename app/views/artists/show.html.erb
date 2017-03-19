@@ -4,11 +4,9 @@
 
 <h4>Photos</h4>
 <% @artist.photos.each do |photo| %>
-<div class="panel panel-default">
-  <div class="panel-heading">
+
     <%= image_tag photo.image.thumbnail %>
-  </div>
-</div>
+
 <% end %>
 
 <p>Original Artist Name: <%= @artist.name %></p>
@@ -18,6 +16,7 @@
 <hr>
 
 <h3>Songs by original artist:</h3>
+
 
 <% @artist.songs.each do |song| %>
     <p><%= link_to song.song_title, song_path(song.id) %></p>

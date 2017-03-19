@@ -17,6 +17,6 @@ Song.create!([
   { artist_name: "Goofey", song_title: "Everyday I'm Goofing", artist: artist3 },
 ])
 
-photo1 = Photo.create!(artist:  artist1,  remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489671252/event1_xdfsrj.jpg")
-photo2 = Photo.create!(artist: artist2, remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489671253/event2_trnlm3.jpg")
-photo3 = Photo.create!(artist: artist3, remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489671257/event3_yrkcwy.jpg")
+photo1 = Photo.create!(artist:  artist1,  remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489945468/Mickey_Mouse_yyakeu.png")
+photo2 = Photo.create!(artist: artist2, remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489945468/Donald_Duck__3_t92fge.png")
+photo3 = Photo.create!(artist: artist3, remote_image_url: "https://res.cloudinary.com/dnbyfobad/image/upload/v1489945468/Goofy_transparent_pr4mgy.png")
