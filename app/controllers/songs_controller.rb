@@ -1,22 +1,19 @@
 class SongsController < ApplicationController
 
-
-
   def index
     @songs = Song.all
   end
 
   def show
-     @song =Song.find(params[:id])
+    @song =Song.find(params[:id])
    end
 
   def new
-   @song = Song.new
+    @song = Song.new
   end
 
   def create
-  @song = Song.new(song_params)
-
+    @song = Song.new(song_params)
   if @song.save
      redirect_to @song
   else
@@ -25,24 +22,22 @@ class SongsController < ApplicationController
   end
 
   def edit
-  @song = Song.find(params[:id])
-    end
+    @song = Song.find(params[:id])
+  end
 
-def update
-  @song = Song.find(params[:id])
-
-
-  if @song.update_attributes(song_params)
+  def update
+    @song = Song.find(params[:id])
+      if @song.update_attributes(song_params)
     redirect_to @song
   else
     render 'edit'
+    end
   end
-end
 
-def destroy
-  @song = Song.destroy(params[:id])
-  redirect_to root_path
-end
+  def destroy
+    @song = Song.destroy(params[:id])
+    redirect_to root_path
+  end
 
 private
 

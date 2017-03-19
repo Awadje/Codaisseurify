@@ -4,19 +4,17 @@ class ArtistsController < ApplicationController
     @artists = Artist.all
   end
 
-
   def show
-     @artist = Artist.find(params[:id])
-     @photos = @artist.photos
+    @artist = Artist.find(params[:id])
+    @photos = @artist.photos
    end
 
   def new
-   @artist = Artist.new
+  @artist = Artist.new
   end
 
   def create
-  @artist = Artist.new(artist_params)
-
+    @artist = Artist.new(artist_params)
   if @artist.save
     image_params.each do |image|
       @artist.photos.create(image: image)
@@ -27,18 +25,13 @@ class ArtistsController < ApplicationController
    end
   end
 
-
   def edit
-  @artist = Artist.find(params[:id])
-  @photos = @artist.photos
-
+    @artist = Artist.find(params[:id])
+    @photos = @artist.photos
     end
 
-
-
-def update
-  @artist = Artist.find(params[:id])
-
+  def update
+    @artist = Artist.find(params[:id])
   if @artist.update_attributes(artist_params)
     image_params.each do |image|
         @artist.photos.create(image: image)
