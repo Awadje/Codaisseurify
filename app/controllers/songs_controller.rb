@@ -44,6 +44,8 @@ def destroy
   redirect_to root_path
 end
 
+private
+
 def song_params
   params.require(:song).permit(:id, :artist_name, :song_title, :artist_id)
 end
