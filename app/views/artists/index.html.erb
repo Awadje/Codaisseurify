@@ -1,6 +1,10 @@
 <h1>Original Artists</h1>
 
 <% @artists.each do |artist| %>
+    <%= image_tag artist.photos.first.image.thumbnail %>
     <p><%= link_to artist.name, artist_path(artist.id) %></p>
+
+
+
 
 <% end %>
