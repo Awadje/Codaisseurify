@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :load_artist, only: [:create, :new]
 
   def index
     @songs = Song.all
@@ -13,13 +14,13 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
-  if @song.save
-     redirect_to @song
-  else
-     render 'new'
+    @song = @artist.songs.build(song_params)
+    if @song.save
+      redirect_to @artist, notice: "Song successfully created"
+    else
+      render :new
+    end
    end
-  end
 
   def edit
     @song = Song.find(params[:id])
@@ -42,7 +43,13 @@ class SongsController < ApplicationController
 private
 
 def song_params
-  params.require(:song).permit(:id, :artist_name, :song_title, :artist_id)
+
+    params.require(:song).permit(:artist_name, :song_title)
+
+end
+
+def load_artist
+  @artist = Artist.find(params[:artist_id])
 end
 
 end

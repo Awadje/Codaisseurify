@@ -17,10 +17,10 @@
 
 <h3>Songs by original artist:</h3>
 
-
 <% @artist.songs.each do |song| %>
     <p><%= link_to song.song_title, song_path(song.id) %></p>
 <% end %>
+
 
 <hr>
 
@@ -28,4 +28,5 @@
 <strong><p><%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %></p></strong>
 <hr>
 
-<strong><p><%= link_to "New Song", new_song_path %></p></strong>
+
+<strong><p><%= link_to "New Song", new_artist_song_path(@artist.id) %></p></strong>

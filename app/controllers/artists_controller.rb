@@ -7,10 +7,15 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @photos = @artist.photos
+
    end
 
+   def Artist
+   @artist = Artist.find params[:artist_id]
+ end
+
   def new
-  @artist = Artist.new
+  @artist = Artist.build
   end
 
   def create
@@ -18,7 +23,7 @@ class ArtistsController < ApplicationController
   if @artist.save
     image_params.each do |image|
       @artist.photos.create(image: image)
-     redirect_to @artist
+
    end
   else
      render 'new'
