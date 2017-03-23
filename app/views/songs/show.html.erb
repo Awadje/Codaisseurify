@@ -5,8 +5,3 @@
 <p>Original Artist: <%= @song.artist.name %></p>
 
 <hr>
-
-
-
-<%= link_to "[Edit]", edit_song_path(@song.id) %>
-<%= link_to "[Delete]", song_path(@song.id), method: :delete, data: { confirm: "Are you sure?" } %>
